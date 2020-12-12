@@ -8,13 +8,15 @@
 ![Contributors](https://img.shields.io/github/contributors/2kabhishek/mkrepo?style=plastic&color=f0f&label=Contributors)
 ![License](https://img.shields.io/github/license/2kabhishek/mkrepo?style=plastic&color=555&label=License)
 
-mkrepo is a `<utility/tool/feature>` that allows `<insert_target_audience>` to do `<action/task_it_does>`.
+mkrepo is a little wrapper around `github-cli` that allows you to make new repos even more quickly and sets up remotes so that you can jump straight into typing out code.
 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
 
-- You have installed the latest version of `<coding_language/dependency/requirement_1>`
+- You have installed the latest version of `github-cli`
+
+- A template repo like [BareMinimum](https://github.com/2kabhishek/BareMinimum)
 
 ## Installing mkrepo
 
@@ -23,29 +25,19 @@ To install mkrepo, follow these steps:
 ```bash
 git clone https://github.com/2kabhishek/mkrepo
 cd mkrepo
-<install_command>
+# Link mkrepo to a directory that's in PATH (~/Applications/bin here)
+ln -sfnv "$PWD/mkrepo" ~/Applications/bin/
 ```
 
 ## Using mkrepo
 
 ```bash
 USAGE:
-    command [FLAGS] [OPTIONS]
-
-FLAGS:
-    -h, --help              Prints help information.
-
-OPTIONS:
-    -o, --option <value>    Option description. Options are: a, b. [default: a]
+    mkrepo repoName [templName]
 
 ```
-
-### To-Do
-
-- [x] Setup repo
-- [ ] Think real hard
-- [ ] Start typing
 
 Hit the :star: button if you found this useful.
 
 ### More Info
+
