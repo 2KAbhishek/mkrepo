@@ -12,7 +12,7 @@ mkdir -p "$repoName"
 cd "$repoName" || exit 1
 
 git init
-gh repo create "$repoName" -y -d "Welcome to $repoName" --public -p "$templName"
+gh repo create "$repoName" -y -d "Welcome to $repoName" --private -p "$templName"
 git pull origin master --allow-unrelated-histories
 git push --set-upstream origin master
 
