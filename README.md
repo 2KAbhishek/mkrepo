@@ -26,7 +26,7 @@ To install mkrepo, follow these steps:
 git clone https://github.com/2kabhishek/mkrepo
 cd mkrepo
 # Link mkrepo to a directory that's in PATH (~/Applications/bin here)
-ln -sfnv "$PWD/mkrepo" ~/Applications/bin/
+ln -sfnv "$PWD/mkrepo.sh" ~/Applications/bin/mkrepo
 ```
 
 ## Using mkrepo
