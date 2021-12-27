@@ -1,21 +1,28 @@
 #!/bin/bash
 
 repoName=$1
-templName=$2
+templateName=$2
+description=$3
 
-if [ -z "$templName" ]; then
-    templName=BareMinimum
+if [ -z "$templateName" ]; then
+    templateName=BareMinimum
+fi
+
+if [ -z "$description" ]; then
+    description="Welcome to $repoName"
 fi
 
 mkdir -p "$repoName"
 
 cd "$repoName" || exit 1
 
+gh repo create "$repoName" -p "$templateName" -d "$description" --private || exit 1
+
 git init
-gh repo create "$repoName" -y -d "Welcome to $repoName" --private -p "$templName"
+git remote add origin "git@github.com:2kabhishek/$repoName.git"
 git pull origin main --allow-unrelated-histories
 git push --set-upstream origin main
 
-sed -i "s/$templName/$repoName/g" README.md
+sed -i "s/$templateName/$repoName/g" README.md
 git commit -a -m "Update Readme"
 
