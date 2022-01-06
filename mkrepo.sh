@@ -20,9 +20,10 @@ gh repo create "$repoName" -p "$templateName" -d "$description" --private || exi
 
 git init
 git remote add origin "git@github.com:2kabhishek/$repoName.git"
-git pull origin main --allow-unrelated-histories
-git push --set-upstream origin main
 
 sed -i "s/$templateName/$repoName/g" README.md
 git commit -a -m "Update Readme"
+
+git pull origin main --allow-unrelated-histories
+git push --set-upstream origin main
 
