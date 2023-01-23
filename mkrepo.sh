@@ -23,6 +23,6 @@ git remote add origin "git@github.com:2kabhishek/$repoName.git"
 
 git pull origin main --allow-unrelated-histories
 sed -i "s/$templateName/$repoName/g" README.md
-git commit -a -m "Update Readme"
+git commit -a -m "docs: update readme"
 git push --set-upstream origin main
 
