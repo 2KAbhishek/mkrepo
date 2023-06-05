@@ -30,7 +30,7 @@ mkrepo is a little wrapper around `github-cli` that allows you to make new repos
 
 ## Inspiration
 
-I make a lot of projects (as you might have seen on my GitHub profile) and I needed a tool to fasttrack the first commit.
+I make a lot of projects (as you might have seen on my GitHub profile), and I needed a tool to fasttrack the first commit.
 
 ## Prerequisites
 
@@ -48,12 +48,12 @@ To install mkrepo, follow these steps:
 git clone https://github.com/2kabhishek/mkrepo
 cd mkrepo
 # Link mkrepo to a directory that's in PATH (~/Applications/bin here)
-ln -sfnv "$PWD/mkrepo.sh" ~/Applications/bin/mkrepo
+ln -sfnv "$PWD/mkrepo.sh" ~/.local/bin/mkrepo
 ```
 
 ## Using mkrepo
 
-If you have an existing project, you can use `mkrepo project_dirname` to create a new repo with the same name and it will automatically set things up for you.
+If you have an existing project, you can use `mkrepo project_dirname` to create a new repo with the same name, and it will automatically set things up for you.
 
 For new repos you can use `mkrepo` to create a new repo that uses the template you pass (mkrepo if empty) for setting things up.
 
