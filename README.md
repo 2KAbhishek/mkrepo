@@ -64,14 +64,14 @@ Usage: mkrepo <repoName> [templateName] [description]
 
 Arguments:
   repo name:        The name of the new repository.
-  template name:    The name of the template repo to use (default: $DEFAULT_TEMPLATE).
-  description:      The description for the repository (default: $DEFAULT_DESCRIPTION).
+  template name:    The name of the template repo to use (default: bare-minimum).
+  description:      The description for the repository (default: Short Sweet Headline 🎇🎉).
 ```
 
 ## Templates
 
 These are some of the templates I have setup and use:
-- [bare-minimum](https://github.com/2kabhishek/bare-minimum): General purpose template
+- [bare-minimum](https://github.com/2kabhishek/bare-minimum): General purpose template (default)
 - [tiny-web](https://github.com/2kabhishek/tiny-web): Template for calssic web pages
 - [shelly](https://github.com/2kabhishek/shelly): Template for CLI tools
 
