@@ -58,13 +58,14 @@ If you have an existing project, you can use `mkrepo project_dirname` to create 
 For new repos you can use `mkrepo` to create a new repo that uses the template you pass (mkrepo if empty) for setting things up.
 
 ```bash
-USAGE:
-    mkrepo repoName [templName]
+mkrepo: Ready to go repos from the CLI 🚀💡
 
-EXAMPLES:
-mkrepo existing_project
-# Use tiny-web as template
-mkrepo new_project tiny-web
+Usage: mkrepo <repoName> [templateName] [description]
+
+Arguments:
+  repo name:        The name of the new repository.
+  template name:    The name of the template repo to use (default: $DEFAULT_TEMPLATE).
+  description:      The description for the repository (default: $DEFAULT_DESCRIPTION).
 ```
 
 ## How it was built
