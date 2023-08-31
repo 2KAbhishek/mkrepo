@@ -1,16 +1,25 @@
 #!/bin/bash
+display_help() {
+    echo "Usage: $(basename "$0") <repoName> [templateName] [description]"
+    echo "  repoName: The name of the new repository."
+    echo "  templateName (optional): The name of the template (default: bare-minimum)."
+    echo "  description (optional): The description for the repository (default: Welcome to \$repoName)."
+}
 
-repoName=$1
-templateName=$2
-description=$3
-
-if [ -z "$templateName" ]; then
-    templateName=bare-minimum
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    display_help
+    exit 0
 fi
 
-if [ -z "$description" ]; then
-    description="Welcome to $repoName"
+if [ $# -eq 0 ]; then
+    read -rp "Enter repository name: " repoName
+    read -rp "Enter template name (default: bare-minimum): " templateName
+    read -rp "Enter repository description (default: Welcome to \$repoName): " description
 fi
+
+repoName=${repoName:-$1}
+templateName=${templateName:-"bare-minimum"}
+description=${description:-"Welcome to $repoName"}
 
 mkdir -p "$repoName"
 
