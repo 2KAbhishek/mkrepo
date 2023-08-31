@@ -68,6 +68,13 @@ Arguments:
   description:      The description for the repository (default: $DEFAULT_DESCRIPTION).
 ```
 
+## Templates
+
+These are some of the templates I have setup and use:
+- [bare-minimum](https://github.com/2kabhishek/bare-minimum): General purpose template
+- [tiny-web](https://github.com/2kabhishek/tiny-web): Template for calssic web pages
+- [shelly](https://github.com/2kabhishek/shelly): Template for CLI tools
+
 ## How it was built
 
 mkrepo was built using `bash` and `gh`
