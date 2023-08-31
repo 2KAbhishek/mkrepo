@@ -1,37 +1,63 @@
 #!/bin/bash
+
+DEFAULT_TEMPLATE="bare-minimum"
+DEFAULT_DESCRIPTION="Short sweet headline with 🎇🎉"
+
 display_help() {
-    echo "Usage: $(basename "$0") <repoName> [templateName] [description]"
-    echo "  repoName: The name of the new repository."
-    echo "  templateName (optional): The name of the template (default: bare-minimum)."
-    echo "  description (optional): The description for the repository (default: Welcome to \$repoName)."
+    cat << EOF
+mkrepo: Ready to go repos from the CLI 🚀💡
+
+Usage: mkrepo <repoName> [templateName] [description]
+
+Arguments:
+  repo name:        The name of the new repository.
+  template name:    The name of the template repo to use (default: $DEFAULT_TEMPLATE).
+  description:      The description for the repository (default: $DEFAULT_DESCRIPTION).
+EOF
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]]; then
-    display_help
-    exit 0
-fi
+check_gh_cli() {
+    if ! command -v gh &> /dev/null; then
+        echo "Error: The 'gh' command is not available. Make sure GitHub CLI is installed."
+        exit 1
+    fi
+}
 
-if [ $# -eq 0 ]; then
-    read -rp "Enter repository name: " repoName
-    read -rp "Enter template name (default: bare-minimum): " templateName
-    read -rp "Enter repository description (default: Welcome to \$repoName): " description
-fi
+create_repository() {
+    gh repo create "$repoName" -p "$templateName" -d "$description" --private || exit 1
+}
 
-repoName=${repoName:-$1}
-templateName=${templateName:-"bare-minimum"}
-description=${description:-"Welcome to $repoName"}
+update_and_push() {
+    gh repo clone "$repoName"
+    cd "$repoName" || exit
+    sed -i "s/$templateName/$repoName/g" README.md
+    git commit -a -m "docs: update readme"
+    git push --set-upstream origin main
+}
 
-mkdir -p "$repoName"
+main() {
+    check_gh_cli
 
-cd "$repoName" || exit 1
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        display_help
+        exit 0
+    fi
 
-gh repo create "$repoName" -p "$templateName" -d "$description" --private || exit 1
+    if [ $# -lt 1 ]; then
+        echo "Error: repo name is required."
+        echo
+        display_help
+        exit 1
+    fi
 
-git init
-git remote add origin "git@github.com:2kabhishek/$repoName.git"
 
-git pull origin main --allow-unrelated-histories
-sed -i "s/$templateName/$repoName/g" README.md
-git commit -a -m "docs: update readme"
-git push --set-upstream origin main
+    repoName=$1
+    templateName=${2:-$DEFAULT_TEMPLATE}
+    description=${3:-"$DEFAULT_DESCRIPTION"}
+
+    create_repository
+    update_and_push
+}
+
+main "$@"
 
