@@ -5,7 +5,7 @@ templateName=$2
 description=$3
 
 if [ -z "$templateName" ]; then
-    templateName=BareMinimum
+    templateName=bare-minimum
 fi
 
 if [ -z "$description" ]; then
