@@ -47,7 +47,7 @@ To install mkrepo, follow these steps:
 ```bash
 git clone https://github.com/2kabhishek/mkrepo
 cd mkrepo
-# Link mkrepo to a directory that's in PATH (~/Applications/bin here)
+# Link mkrepo to a directory that's in PATH (~/.local/bin here)
 ln -sfnv "$PWD/mkrepo.sh" ~/.local/bin/mkrepo
 ```
 
@@ -70,7 +70,7 @@ Arguments:
 
 ## Templates
 
-These are some of the templates I have setup and use:
+These are some templates I have set up and use:
 - [bare-minimum](https://github.com/2kabhishek/bare-minimum): General purpose template (default)
 - [tiny-web](https://github.com/2kabhishek/tiny-web): Template for calssic web pages
 - [shelly](https://github.com/2kabhishek/shelly): Template for CLI tools
