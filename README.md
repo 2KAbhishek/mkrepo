@@ -71,6 +71,7 @@ Arguments:
 ## Templates
 
 These are some templates I have set up and use:
+
 - [bare-minimum](https://github.com/2kabhishek/bare-minimum): General purpose template (default)
 - [tiny-web](https://github.com/2kabhishek/tiny-web): Template for calssic web pages
 - [shelly](https://github.com/2kabhishek/shelly): Template for CLI tools
