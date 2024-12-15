@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DEFAULT_TEMPLATE="bare-minimum"
 DEFAULT_DESCRIPTION="Short sweet headline with 🎇🎉"
